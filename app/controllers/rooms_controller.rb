@@ -37,7 +37,15 @@ class RoomsController < ApplicationController
         # @room_message = RoomMessage.find(params[:room]) if params[:room]
         @room_message = RoomMessage.new room: @room
         @room_messages = @room.room_messages
-      end
+    end
+
+    def destroy
+        @room = Room.find(params[:id])
+        @room.destroy
+        @room_message = RoomMessage.find(rooms_id: @room)
+    
+        redirect_to rooms_path
+    end
     
     protected
     

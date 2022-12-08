@@ -71,7 +71,8 @@ group :test do
   gem "webdrivers"
 end
 
-gem "mysql2"
+# gem "mysql2"
+gem 'pg'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'bootstrap'
