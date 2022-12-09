@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_12_08_060347) do
-  create_table "room_messages", charset: "utf8mb4", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "room_messages", force: :cascade do |t|
     t.bigint "room_id", null: false
     t.text "message"
     t.datetime "created_at", null: false
@@ -19,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_060347) do
     t.index ["room_id"], name: "index_room_messages_on_room_id"
   end
 
-  create_table "rooms", charset: "utf8mb4", force: :cascade do |t|
+  create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
